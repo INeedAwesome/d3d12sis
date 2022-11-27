@@ -12,7 +12,13 @@ project "D3D12Sis"
 
    includedirs
    {
-      "src"
+      "src",
+      "../glfw/include"
+   }
+
+   links
+   {
+      "GLFW"
    }
 
    targetdir ("../bin/" .. outputdir .. "/%{prj.name}")
@@ -20,25 +26,25 @@ project "D3D12Sis"
 
    filter "system:windows"
       systemversion "latest"
-      defines { "SI_PLATFORM_WINDOWS" }
+      defines { "SS_PLATFORM_WINDOWS" }
    filter "system:linux"
       systemversion "latest"
-      defines { "SI_PLATFORM_LINUX" }
+      defines { "SS_PLATFORM_LINUX" }
 
    filter "configurations:Debug"
-      defines { "SI_DEBUG" }
+      defines { "SS_DEBUG" }
       runtime "Debug"
       symbols "On"
 
    filter "configurations:Release"
-      defines { "SI_RELEASE" }
+      defines { "SS_RELEASE" }
       runtime "Release"
       optimize "On"
       symbols "On"
 
    filter "configurations:Dist"
       kind "WindowedApp"
-      defines { "SI_DIST" }
+      defines { "SS_DIST" }
       runtime "Release"
       optimize "On"
       symbols "Off"

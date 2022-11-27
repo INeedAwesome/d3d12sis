@@ -6,3 +6,4 @@ workspace "D3D12Sis"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include "D3D12Sis"
+include "glfw"
